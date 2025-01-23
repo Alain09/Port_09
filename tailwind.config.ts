@@ -23,7 +23,7 @@ export default {
         tablette_orange:"url(/tablette1.png)",
 
         laptop_noir:"url(/laptop.png)",
-        laptop_orange:"url(/laptop1.png)",
+        laptop:"url(/fond1.png)",
 
        
       },

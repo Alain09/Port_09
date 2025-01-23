@@ -138,9 +138,9 @@ function Navbar() {
 
     return (
         <div className=' relative  w-fit h-fit'>
-            <nav className={`flex justify-center items-center gap-x-10 fixed top-0 px-4 md:px-8 lg:px-[60px]  h-[50px] md:h-[60px] lg:h-[70px]  w-full border-b-[1px] border-[#ff4500] bg-second dark:bg-third     bg-opacity-80 dark:bg-opacity-95  backdrop-blur-md dark:backdrop-blur-md z-20  `}>
+            <nav className={`flex justify-center items-center gap-x-10 fixed top-0 px-5 md:px-10 lg:px-[60px]  h-[60px] md:h-[70px] lg:h-[80px]  w-full border-b-[1px] border-[#ff4500] bg-second dark:bg-third  dark:bg-opacity-80    bg-opacity-80   backdrop-blur-md dark:backdrop-blur-md z-20  `}>
                 <div className='lg:hidden  cursor-pointer' onClick={() => setOpen(!open)} >
-                    <Icon component={MenuIcon} height={30} width={30} className='text-third dark:text-second ' /> {/* icone menu  */}
+                    <Icon component={MenuIcon} height={35} width={35} className='text-third dark:text-second ' /> {/* icone menu  */}
                 </div>
                 <div className='lg:hidden flex justify-center items-center w-full'
                 >
@@ -167,7 +167,7 @@ function Navbar() {
                         return (
                             <Link
 
-                                key={id} className={`font-normal text-[16px] md:text-[17px] lg:text-[18px] ${isActive ? "text-primar " : "  text-third dark:text-second "}  `}
+                                key={id} className={`font-normal font-mone text-[16px] md:text-[17px] lg:text-[18px] ${isActive ? "text-primar " : "  text-third dark:text-second "}  `}
                                 href={liste.href}
                             >
                                 {liste.liste}
@@ -217,20 +217,20 @@ const Mobilebar = ({ open, setOpen, pathname, theme }: {
                             animate={{ x: 0 }}
                             exit={{ x: -300 }}
                             transition={{ duration: 0.2 }}
-                            className={`   flex flex-col  absolute top-0 left-0 z-[100] pl-4 md:pl-8 lg:pl-[60px] bg-second dark:bg-third  border-r-[#ff4500] border-r-[1px]  h-[2000px] w-[310px] backdrop-blur-md dark:backdrop-blur-md bg-opacity-80 dark:bg-opacity-95`}>
+                            className={` overflow-y-scroll min-h-screen   flex flex-col pb-10 fixed inset-0  left-0 z-[100] pl-5 md:pl-10 lg:pl-[60px] bg-second dark:bg-third  border-r-[#ff4500] border-r-[1px]   w-[310px] backdrop-blur-md dark:backdrop-blur-md   `}>
                             <div className=' flex justify-between items-center pt-[13px] md:pt-[18px] lg:pt-[22px] '>{/* ajustement sur la nav mobile */}
                                 <div >
                                     <Link href="/" onClick={() => setOpen(!open)}>
                                         {  // icone  logo at
-                                            theme === "light"
-                                                ? <Image src="/lg_mod4.png" alt='logo' width={35} height={35}  className=' h-[30px] w-auto md:h-[35px]' />
-                                                : <Image src="/lg_mod3.png" alt='log1o' width={35} height={35}  className=' h-[30px] w-auto md:h-[35px]' />
-                                        }
+                                          theme === "light" 
+                                          ?<div> <Image src="/lg_mod4.png" alt='logo' width={35} height={35} className=' h-[30px] w-auto  md:h-[35px]' /></div>
+                                          :<div><Image src="/lg_mod3.png" alt='log1o' width={35} height={35}  className=' h-[30px] w-auto  md:h-[35px]' /></div>
+                                  }
 
                                     </Link>
                                 </div>
                                 <div className=' mx-10 cursor-pointer' onClick={() => setOpen(!open)}>
-                                    <Icon component={CloseIcon} height={30} width={30} className='text-third dark:text-second ' /> {/* icone close  */}
+                                    <Icon component={CloseIcon} height={35} width={35} className='text-third dark:text-second ' /> {/* icone close  */}
                                 </div>
                             </div>
 
@@ -238,12 +238,12 @@ const Mobilebar = ({ open, setOpen, pathname, theme }: {
                                 {Menu.map((liste) => {
                                     const isActive = pathname === liste.href // pour verifier le lien actif actuel
                                     return (
-                                        <div key={liste.id} className=' flex  justify-start items-center gap-5 pt-[20px]  '>
+                                        <div key={liste.id} className=' flex  justify-start items-center gap-5 pt-[30px]  '>
                                             <span className={`   ${isActive ? "text-primar " : `text-third dark:text-second `}`}>{liste.icone}</span>{/* les icones correspondant au lien */}
 
                                             <Link
                                                 onClick={() => setOpen(!open)}
-                                                className={`  font-normal text-[16px] md:text-[17px] lg:text-[18px] ${isActive ? "text-primar " : `text-third dark:text-second `}`}
+                                                className={`  font-normal font-mono text-[16px] md:text-[17px] lg:text-[18px] ${isActive ? "text-primar " : `text-third dark:text-second `}`}
                                                 href={liste.href}
                                             >
                                                 {liste.liste}

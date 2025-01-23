@@ -8,7 +8,7 @@ export default function Home() {
   
 
   return (
-    <div className=" h-fit w-full  mt-[50px] md:mt-[60px] lg:mt-[70px] ">
+    <div className=" h-fit w-full  mt-[60px] md:mt-[70px] lg:mt-[80px] ">
      <Helo/>
     </div>
   );
