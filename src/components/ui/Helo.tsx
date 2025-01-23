@@ -5,6 +5,34 @@ import { motion } from 'framer-motion'
 import Typewriter from 'typewriter-effect'
 import Image from 'next/image';
 
+
+
+const services =[
+  {
+    id:1,
+    mod:"IA"
+  },
+  {
+    id:2,
+    mod:"Site web "
+  },
+  {
+    id:3,
+    mod:"Data-analyste"
+  },
+  {
+    id:4,
+    mod:"Data-Base"
+  },
+  {
+    id:5,
+    mod:"Graphic-design"
+  },
+  {
+    id:6,
+    mod:"Digi-Marketing"
+  },
+]
 function Helo() {
   const mrHtml = ReactDOMServer.renderToStaticMarkup(<span className="text-primar">.AT</span>);
 
@@ -17,32 +45,7 @@ function Helo() {
     }
   }
 
-  const services =[
-    {
-      id:1,
-      mod:"IA"
-    },
-    {
-      id:2,
-      mod:"Site web "
-    },
-    {
-      id:3,
-      mod:"Data-analyste"
-    },
-    {
-      id:4,
-      mod:"Data-Base"
-    },
-    {
-      id:5,
-      mod:"Graphic-design"
-    },
-    {
-      id:6,
-      mod:"Digi-Marketing"
-    },
-  ]
+
 
   return (
     <div className=' flex flex-col flex-1 '>
@@ -101,20 +104,22 @@ function Helo() {
                     .start();
                 }} />
             </div>
-            <motion.p
+            <motion.div
 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 2 }} className=' text-center font-extralight  text-[16px] md:text-[17px] lg:text-[18px] font-mono mt-2 '>
-              <span>Donnez vie à vos projets grâce à notre expertise en</span>
+              <p className=' mb-5'>Donnez vie à vos projets grâce à notre expertise en :</p>
               <div className='grid  grid-rows-3 grid-cols-2 md:grid-row-2  md:grid-cols-3  gap-3'>
                 {
-                  services.map((service)=>(
-                    <div key={service.id} className='ring-1 ring-primar rounded-md bg-primar/30'>{service.mod}</div>
-                  ))
-                }
+                  services.map((service)=>{
+                    return (
+                      <div key={service.id} className='ring-1 ring-primar rounded-md bg-primar/30'>{service.mod}</div>
+                    )
+                  }
+                )}
               </div>
-            </motion.p>
+            </motion.div>
 
           </section>
         </div>

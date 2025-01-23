@@ -238,7 +238,7 @@ const Mobilebar = ({ open, setOpen, pathname, theme }: {
                                 {Menu.map((liste) => {
                                     const isActive = pathname === liste.href // pour verifier le lien actif actuel
                                     return (
-                                        <div key={liste.id} className=' flex  justify-start items-center gap-5 pt-[30px]  '>
+                                        <div key={liste.id} className=' flex  justify-start items-center gap-5 pt-[20px]  '>
                                             <span className={`   ${isActive ? "text-primar " : `text-third dark:text-second `}`}>{liste.icone}</span>{/* les icones correspondant au lien */}
 
                                             <Link
