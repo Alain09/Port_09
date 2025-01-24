@@ -4,6 +4,7 @@ import ReactDOMServer from 'react-dom/server';
 import { motion } from 'framer-motion'
 import Typewriter from 'typewriter-effect'
 import Image from 'next/image';
+import Link from 'next/link';
 import Titre from './titre';
 import { FaLightbulb, FaRocket, FaMapSigns } from "react-icons/fa";
 
@@ -49,7 +50,7 @@ const engagement = [
     id: 2,
     icon: <FaMapSigns size={20} />,
     titre: "STRATEGIE",
-    texte: "Parce que chaque projet mérite une réflexion ciblée, nous bâtissons des plans d’action intelligents pour maximiser vos résultats et devancer vos concurrents.",
+    texte: "Parce que chaque projet mérite une réflexion ciblée, nous bâtissons des plans d&apos;action intelligents pour maximiser vos résultats et devancer vos concurrents.",
 
   },
   {
@@ -157,10 +158,10 @@ function Helo() {
 
 
       {/* la partie engagement */}
-      <div className='  h-fit w-full  text-[16px] md:text-[17px] lg:text-[18px] font-mono text-third dark:text-second border-t-2 border-t-primar/20 border-b-2 border-b-primar/20  py-20'>
+      <div className='  h-fit w-full  text-[16px] md:text-[17px] lg:text-[18px] font-mono text-third dark:text-second border-t-2 border-t-primar/20  px-5 md:px-10 lg:px-[60px]  py-20'>
 
-        <Titre text="Engagés Pour ? " />
-        <div className=' flex flex-col  md:flex-row justify-center px-5 md:px-10 lg:px-[60px] mt-10  md:justify-between items-center gap-10 md:gap-5 '>
+        <Titre text="Nos valeurs ?" />
+        <div className=' flex flex-col  md:flex-row justify-center mt-10  md:justify-between items-center gap-10 md:gap-5 '>
           {
             engagement.map((eng) => {
               return (
@@ -177,8 +178,45 @@ function Helo() {
 
       </div>
 
-      <div className=' h-[100px] w-full bg-primar'>
-      </div>   
+      {/* A propos  bg-second dark:bg-third  */}
+      <div className=' h-fit w-full dark:bg-[#fcfcfc] bg-[#0c0c0c] py-10 md:py-20  '>
+        <div className=' flex flex-col gap-5  px-5 md:px-10 lg:px-[60px]  bg-second dark:bg-third pt-5 md:pt-10 '>
+          <Titre text="Qui suis-je ?" />
+          <div className=' flex flex-col-reverse md:grid md:grid-cols-2'>
+            <div className='h-full  flex flex-col gap-5 my-10   text-[16px] md:text-[17px] lg:text-[18px] font-mono font-medium text-third/80 dark:text-second/80 text-justify'>
+              <div>
+                Je suis <span className='font-semibold'>Mr ALAIN TANGUY</span> abrevié <span className='font-semibold'>Mr</span><span className='font-semibold text-primar'>.AT</span> est une solution numerique innovante
+                et polyvalente. J&apos;incarne une vision alliant <span className='font-semibold text-primar'>creativité, stratégie</span> et <span className='font-semibold text-primar'>technologie</span> pour offrir des solutions adaptées
+                et performantes. Ma mission va bien au dela de simples services : J&apos;accompagne les entreprises dans leur transformation
+                numérique en leur offrant une expérience sur mesure, où chaque solution est pensée pour maximiser leur potentiel et les
+                aider à atteindre leurs objectifs.<br />
+                <span className='font-semibold' > Je suis le partenaire idéal qu&apos;il vous faut.</span>
+              </div>
+              <div className=' text-third mt-5 p-2 h-fit w-fit ring-1 ring-primar  rounded-md bg-primar cursor-pointer'>
+                scaler un rdv {/* lien whatsapp */}
+              </div>
+
+            </div>
+            <div className=' flex justify-center items-center md:my-10  '>
+              <div className='flex justify-center items-center'>
+                <Image width={500} height={500} src="/imag.png" alt='imag' className='  ' />
+              </div>
+
+            </div>
+          </div>
+          <div className=' flex justify-center items-center my-10 text-[14px] md:text-[15px] '>
+            <Link href="/Apropos" className=' px-2 py-1 h-fit w-fit rounded-md dark:text-third text-second  dark:bg-second/80 bg-third/80 hover:dark:bg-primar hover:bg-primar hover:text-third'> En savoir plus </Link>
+          </div>
+
+
+        </div>
+
+      </div>
+
+      {/* les skills */}
+      <div className=' h-[105px] w-full dark:bg-black'>
+
+      </div>
     </div>)
 
 }
