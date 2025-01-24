@@ -4,33 +4,60 @@ import ReactDOMServer from 'react-dom/server';
 import { motion } from 'framer-motion'
 import Typewriter from 'typewriter-effect'
 import Image from 'next/image';
+import Titre from './titre';
+import { FaLightbulb, FaRocket, FaMapSigns } from "react-icons/fa";
 
 
+const services = [
+  {
+    id: 1,
+    mod: "IA"
+  },
+  {
+    id: 2,
+    mod: "Site web "
+  },
+  {
+    id: 3,
+    mod: "Data-analyste"
+  },
+  {
+    id: 4,
+    mod: "Data-Base"
+  },
+  {
+    id: 5,
+    mod: "Graphic-design"
+  },
+  {
+    id: 6,
+    mod: "Digi-Marketing"
+  },
+]
 
-const services =[
+/// les engagement 
+
+const engagement = [
   {
-    id:1,
-    mod:"IA"
+    id: 1,
+    icon: <FaLightbulb size={20} />,
+    titre: "CREATIVITE",
+    texte: "Nous transformons vos idées en expériences visuelles uniques et inspirantes, conçues pour marquer les esprits et captiver votre audience.",
+
   },
   {
-    id:2,
-    mod:"Site web "
+    id: 2,
+    icon: <FaMapSigns size={20} />,
+    titre: "STRATEGIE",
+    texte: "Parce que chaque projet mérite une réflexion ciblée, nous bâtissons des plans d’action intelligents pour maximiser vos résultats et devancer vos concurrents.",
+
   },
   {
-    id:3,
-    mod:"Data-analyste"
-  },
-  {
-    id:4,
-    mod:"Data-Base"
-  },
-  {
-    id:5,
-    mod:"Graphic-design"
-  },
-  {
-    id:6,
-    mod:"Digi-Marketing"
+    id: 3,
+    icon: <FaRocket size={20} />,
+    titre: "INNOVATION",
+    texte: "À la croisée de la technologie moderne et de la vision, nous créons des solutions innovantes qui propulsent votre entreprise vers l’avenir.",
+
   },
 ]
 function Helo() {
@@ -49,7 +76,7 @@ function Helo() {
 
   return (
     <div className=' flex flex-col flex-1 '>
-
+      {/* la partie helo */}
       <div className='relative h-[768px] '>
         <Image
           src="/fond.png"
@@ -59,10 +86,10 @@ function Helo() {
           objectFit='cover'
           objectPosition='center'
           priority={true}
-          className='  bg-gradient-to-t from-second dark:from-third bg-current ' 
-        > 
-        
-        
+          className='  bg-gradient-to-t from-second dark:from-third bg-current '
+        >
+
+
         </Image>
         <div className=' flex justify-center'>
           <section
@@ -112,12 +139,12 @@ function Helo() {
               <p className=' mb-5'>Donnez vie à vos projets grâce à notre expertise en :</p>
               <div className='grid  grid-rows-3 grid-cols-2 md:grid-row-2  md:grid-cols-3  gap-3'>
                 {
-                  services.map((service)=>{
+                  services.map((service) => {
                     return (
                       <div key={service.id} className='ring-1 ring-primar rounded-md bg-primar/30'>{service.mod}</div>
                     )
                   }
-                )}
+                  )}
               </div>
             </motion.div>
 
@@ -129,12 +156,29 @@ function Helo() {
 
 
 
+      {/* la partie engagement */}
+      <div className='  h-fit w-full  text-[16px] md:text-[17px] lg:text-[18px] font-mono text-third dark:text-second border-t-2 border-t-primar/20 border-b-2 border-b-primar/20  py-20'>
 
-      <div className='  h-screen w-full  '>
-        fghn
+        <Titre text="Engagés Pour ? " />
+        <div className=' flex flex-col  md:flex-row justify-center px-5 md:px-10 lg:px-[60px] mt-10  md:justify-between items-center gap-10 md:gap-5 '>
+          {
+            engagement.map((eng) => {
+              return (
+                <div key={eng.id} className=' shadow-md ring-1 dark:ring-second/50 ring-third/50 bg-second dark:bg-third/5 rounded-md h-fit md:h-[350px] lg:h-[250px] w-fit flex flex-col   justify-start gap-y-3 px-5 py-5'>
+                  <div className=' h-[40px] w-[40px] rounded-full bg-primar flex justify-center items-center text-third' >{eng.icon}</div>
+                  <div className='font-bold'>{eng.titre}</div>
+                  <div className=' text-start font-light text-[14px] md:text-[15px] lg:text-[16px] text-third/80 dark:text-second/80'>{eng.texte}</div>
+                </div>
+              )
+            })
+          }
+
+        </div>
+
       </div>
 
-
+      <div className=' h-[100px] w-full bg-primar'>
+      </div>   
     </div>)
 
 }
