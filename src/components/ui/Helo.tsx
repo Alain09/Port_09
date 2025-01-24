@@ -178,12 +178,12 @@ function Helo() {
 
       </div>
 
-      {/* A propos  bg-second dark:bg-third  */}
+      {/* A propos  bg-second dark:bg-third pt-5 md:pt-10  */}
       <div className=' h-fit w-full dark:bg-[#fcfcfc] bg-[#0c0c0c] py-10 md:py-20  '>
-        <div className=' flex flex-col gap-5  px-5 md:px-10 lg:px-[60px]  bg-second dark:bg-third pt-5 md:pt-10 '>
+        <div className=' flex flex-col gap-5  px-5 md:px-10 lg:px-[60px]  '>
           <Titre text="Qui suis-je ?" />
-          <div className=' flex flex-col-reverse md:grid md:grid-cols-2'>
-            <div className='h-full  flex flex-col gap-5 my-10   text-[16px] md:text-[17px] lg:text-[18px] font-mono font-medium text-third/80 dark:text-second/80 text-justify'>
+          <div className=' flex flex-col-reverse md:grid md:grid-cols-2 mt-5'>
+            <div className='h-full  flex flex-col gap-5 my-10   text-[16px] md:text-[17px] lg:text-[18px] font-mono font-semibold'>
               <div>
                 Je suis <span className='font-semibold'>Mr ALAIN TANGUY</span> abrevié <span className='font-semibold'>Mr</span><span className='font-semibold text-primar'>.AT</span> est une solution numerique innovante
                 et polyvalente. J&apos;incarne une vision alliant <span className='font-semibold text-primar'>creativité, stratégie</span> et <span className='font-semibold text-primar'>technologie</span> pour offrir des solutions adaptées
@@ -214,7 +214,7 @@ function Helo() {
       </div>
 
       {/* les skills */}
-      <div className=' h-[105px] w-full dark:bg-black'>
+      <div className=' h-[105px] w-full dark:bg-third'>
 
       </div>
     </div>)
