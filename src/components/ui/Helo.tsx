@@ -50,7 +50,7 @@ const engagement = [
     id: 2,
     icon: <FaMapSigns size={20} />,
     titre: "STRATEGIE",
-    texte: "Parce que chaque projet mérite une réflexion ciblée, nous bâtissons des plans d&apos;action intelligents pour maximiser vos résultats et devancer vos concurrents.",
+    texte: "Parce que chaque projet mérite une réflexion ciblée, nous bâtissons des plans d'action intelligents pour maximiser vos résultats et devancer vos concurrents.",
 
   },
   {
@@ -179,12 +179,12 @@ function Helo() {
       </div>
 
       {/* A propos  bg-second dark:bg-third pt-5 md:pt-10  */}
-      <div className=' h-fit w-full dark:bg-[#fcfcfc] bg-[#0c0c0c] py-10 md:py-20  '>
+      <div className=' h-fit w-full dark:bg-[#fafafa] bg-[#0d0d0d] py-10 md:py-20  '>
         <div className=' flex flex-col gap-5  px-5 md:px-10 lg:px-[60px]  '>
           <Titre text="Qui suis-je ?" />
           <div className=' flex flex-col-reverse md:grid md:grid-cols-2 mt-5'>
-            <div className='h-full  flex flex-col gap-5 my-10   text-[16px] md:text-[17px] lg:text-[18px] font-mono font-semibold'>
-              <div>
+            <div className='h-full  flex flex-col gap-5 my-10   text-[16px] md:text-[17px] lg:text-[18px] font-mono font-semibold text-justify'>
+              <div className=' font-mono font-semibold text-justify'>
                 Je suis <span className='font-semibold'>Mr ALAIN TANGUY</span> abrevié <span className='font-semibold'>Mr</span><span className='font-semibold text-primar'>.AT</span> est une solution numerique innovante
                 et polyvalente. J&apos;incarne une vision alliant <span className='font-semibold text-primar'>creativité, stratégie</span> et <span className='font-semibold text-primar'>technologie</span> pour offrir des solutions adaptées
                 et performantes. Ma mission va bien au dela de simples services : J&apos;accompagne les entreprises dans leur transformation
@@ -214,7 +214,7 @@ function Helo() {
       </div>
 
       {/* les skills */}
-      <div className=' h-[105px] w-full dark:bg-third'>
+      <div className=' h-[106px] w-full dark:bg-third'>
 
       </div>
     </div>)
