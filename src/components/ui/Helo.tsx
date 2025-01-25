@@ -6,7 +6,9 @@ import Typewriter from 'typewriter-effect'
 import Image from 'next/image';
 import Link from 'next/link';
 import Titre from './titre';
+import Bar from './bar';
 import { FaLightbulb, FaRocket, FaMapSigns } from "react-icons/fa";
+
 
 
 const services = [
@@ -61,6 +63,48 @@ const engagement = [
 
   },
 ]
+
+//les skills
+
+const skill =[
+  {
+    id:1,
+    texte:"Python",
+    time:30,
+    percent:70
+  },
+  {
+    id:2,
+    texte:"Python",
+    time:30,
+    percent:60
+  },
+  {
+    id:3,
+    texte:"Python",
+    time:30,
+    percent:75
+  },
+  {
+    id:4,
+    texte:"Python",
+    time:30,
+    percent:80
+  },
+  {
+    id:5,
+    texte:"Python",
+    time:30,
+    percent:70
+  },
+  {
+    id:6,
+    texte:"Python",
+    time:30,
+    percent:65
+  },
+]
+
 function Helo() {
   const mrHtml = ReactDOMServer.renderToStaticMarkup(<span className="text-primar">.AT</span>);
 
@@ -158,9 +202,9 @@ function Helo() {
 
 
       {/* la partie engagement */}
-      <div className='  h-fit w-full  text-[16px] md:text-[17px] lg:text-[18px] font-mono text-third dark:text-second border-t-2 border-t-primar/20  px-5 md:px-10 lg:px-[60px]  py-20'>
+      <div className='  h-fit w-full  text-[16px] md:text-[17px] lg:text-[18px] font-mono text-third dark:text-second border-t-2 border-t-primar/20 border-b-2 border-b-primar/20  px-5 md:px-10 lg:px-[60px]  py-20'>
 
-        <Titre text="Nos valeurs ?" />
+        <Titre text="Nos Valeurs ?" />
         <div className=' flex flex-col  md:flex-row justify-center mt-10  md:justify-between items-center gap-10 md:gap-5 '>
           {
             engagement.map((eng) => {
@@ -204,7 +248,7 @@ function Helo() {
 
             </div>
           </div>
-          <div className=' flex justify-center items-center my-10 text-[14px] md:text-[15px] '>
+          <div className=' flex justify-center items-center mb-10 text-[14px] md:text-[15px] '>
             <Link href="/Apropos" className=' px-2 py-1 h-fit w-fit rounded-md dark:text-third text-second  dark:bg-second/80 bg-third/80 hover:dark:bg-primar hover:bg-primar hover:text-third'> En savoir plus </Link>
           </div>
 
@@ -214,7 +258,21 @@ function Helo() {
       </div>
 
       {/* les skills */}
-      <div className=' h-[106px] w-full dark:bg-third'>
+      <div className=' h-fit w-full py-10 md:py-20 '>
+        <div className=' flex flex-col gap-5  px-5 md:px-10 lg:px-[60px]  '>
+          <Titre text="Nos Skills ?" />
+          <div className='grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-10  mt-5'>
+            {
+              skill.map((skil)=>{
+                return (
+                  <div key={skil.id}>
+                      <Bar texte={skil.texte} time={skil.time} percent={skil.percent}/>
+                  </div>
+                )
+              })
+            }
+          </div>
+        </div>
 
       </div>
     </div>)
