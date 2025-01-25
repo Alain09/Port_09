@@ -1,13 +1,14 @@
 "use client"
 import React from 'react'
 import ReactDOMServer from 'react-dom/server';
-import { motion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import Typewriter from 'typewriter-effect'
 import Image from 'next/image';
 import Link from 'next/link';
 import Titre from './titre';
 import Bar from './bar';
 import { FaLightbulb, FaRocket, FaMapSigns } from "react-icons/fa";
+import { useRef } from 'react';
 
 
 
@@ -66,46 +67,52 @@ const engagement = [
 
 //les skills
 
-const skill =[
+const skill = [
   {
-    id:1,
-    texte:"Python",
-    time:30,
-    percent:70
+    id: 1,
+    texte: "Python",
+    time: 30,
+    percent: 80
   },
   {
-    id:2,
-    texte:"Python",
-    time:30,
-    percent:60
+    id: 2,
+    texte: "Next js / Express js",
+    time: 30,
+    percent: 75
   },
   {
-    id:3,
-    texte:"Python",
-    time:30,
-    percent:75
+    id: 3,
+    texte: "Ps / Ai / Canva",
+    time: 30,
+    percent: 70
   },
   {
-    id:4,
-    texte:"Python",
-    time:30,
-    percent:80
+    id: 4,
+    texte: "Data-Base",
+    time: 30,
+    percent: 70
   },
   {
-    id:5,
-    texte:"Python",
-    time:30,
-    percent:70
+    id: 5,
+    texte: "Figma",
+    time: 30,
+    percent: 80
   },
   {
-    id:6,
-    texte:"Python",
-    time:30,
-    percent:65
+    id: 6,
+    texte: "Agent-IA",
+    time: 30,
+    percent: 75
   },
 ]
 
 function Helo() {
+
+
+  const ref = useRef(null)
+  const isView = useInView(ref, { once: true, amount: 0.1 })
+
+
   const mrHtml = ReactDOMServer.renderToStaticMarkup(<span className="text-primar">.AT</span>);
 
   const variable = {
@@ -261,12 +268,13 @@ function Helo() {
       <div className=' h-fit w-full py-10 md:py-20 '>
         <div className=' flex flex-col gap-5  px-5 md:px-10 lg:px-[60px]  '>
           <Titre text="Nos Skills ?" />
-          <div className='grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-10  mt-5'>
+          <div className='grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-10  mt-5' ref={ref}>
             {
               skill.map((skil)=>{
                 return (
                   <div key={skil.id}>
-                      <Bar texte={skil.texte} time={skil.time} percent={skil.percent}/>
+                    {isView && <Bar texte={skil.texte} time={skil.time} percent={skil.percent}/>}
+                      
                   </div>
                 )
               })
@@ -275,6 +283,9 @@ function Helo() {
         </div>
 
       </div>
+
+      {/* les services */}
+      
     </div>)
 
 }
