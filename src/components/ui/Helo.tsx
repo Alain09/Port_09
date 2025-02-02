@@ -7,8 +7,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Titre from './titre';
 import Bar from './bar';
+import Score from './Score';
+import FreeScrollCarousel from './Scrol_horizontal';
+import Content_image from './Content_image';
+import Services_card from './Services_card';
 import { FaLightbulb, FaRocket, FaMapSigns } from "react-icons/fa";
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 
 
@@ -88,7 +92,7 @@ const skill = [
   },
   {
     id: 4,
-    texte: "Data-Base",
+    texte: "Data-Base/Data-Analysis",
     time: 30,
     percent: 70
   },
@@ -106,9 +110,132 @@ const skill = [
   },
 ]
 
+//les services 
+const texte_services = [
+  {
+    id: 1,
+    icon: <FaLightbulb size={20} />,
+    titre: "Site web",
+    texte: "Nous transformons vos idées en expériences visuelles uniques et inspirantes, conçues pour marquer les esprits et captiver votre audience.",
+    lien: "/Apropos",
+    texte_lien: "Voir les projets"
+  },
+  {
+    id: 2,
+    icon: <FaMapSigns size={20} />,
+    titre: "Agent-IA",
+    texte: "Parce que chaque projet mérite une réflexion ciblée, nous bâtissons des plans d'action intelligents pour maximiser vos résultats et devancer vos concurrents.",
+    lien: "/Apropos",
+    texte_lien: "Voir les projets"
+  },
+  {
+    id: 3,
+    icon: <FaRocket size={20} />,
+    titre: "Data-Analysis",
+    texte: "À la croisée de la technologie moderne et de la vision, nous créons des solutions innovantes qui propulsent votre entreprise vers l’avenir.",
+    lien: "/Apropos",
+    texte_lien: "Voir les projets"
+  },
+  {
+    id: 4,
+    icon: <FaRocket size={20} />,
+    titre: "Logo & Branding",
+    texte: "À la croisée de la technologie moderne et de la vision, nous créons des solutions innovantes qui propulsent votre entreprise vers l’avenir.",
+    lien: "/Apropos",
+    texte_lien: "Voir les projets"
+  },
+]
+
+
+//////////les realisations//////
+
+//liste des projets 
+const Liste_projet = [
+  {
+    id: 1,
+    name: "Logo & branding"
+  },
+  {
+    id: 2,
+    name: "Marquette"
+  },
+  {
+    id: 3,
+    name: "Data-Analys"
+  },
+  {
+    id: 4,
+    name: "Web-site"
+  },
+  {
+    id: 5,
+    name: "Agent-IA"
+  },
+  {
+    id: 6,
+    name: "Machine-learning"
+  },
+  {
+    id: 7,
+    name: "Chatbot"
+  },
+  {
+    id: 8,
+    name: "App-mobile"
+  },
+]
+
+//le contenu de chaque type de projets
+
+const Liste_contenus_projet = [
+  {
+    id: 1,
+    categorie: "Logo & branding",
+    liste: [1, 2, 3, 4]
+  },
+  {
+    id: 2,
+    categorie: "Marquette",
+    liste: [11, 22, 33, 44]
+  },
+  {
+    id: 3,
+    categorie: "Data-Analys",
+    liste: [12, 23, 34, 45]
+  },
+  {
+    id: 4,
+    categorie: "Web-site",
+    liste: [1, 2, 3, 4]
+  },
+  {
+    id: 5,
+    categorie: "Agent-IA",
+    liste: [1, 2, 3, 4]
+  },
+  {
+    id: 6,
+    categorie: "Machine-learning",
+    liste: [1, 2, 3, 4]
+  },
+  {
+    id: 7,
+    categorie: "Chatbot",
+    liste: [1, 2, 3, 4]
+  },
+  {
+    id: 8,
+    categorie: "App-mobile",
+    liste: [1, 2, 3, 4]
+  },
+
+]
+
 function Helo() {
 
 
+
+  const [listOpen, setListOpen] = useState("Logo & branding")
   const ref = useRef(null)
   const isView = useInView(ref, { once: true, amount: 0.1 })
 
@@ -266,15 +393,15 @@ function Helo() {
 
       {/* les skills */}
       <div className=' h-fit w-full py-10 md:py-20 '>
-        <div className=' flex flex-col gap-5  px-5 md:px-10 lg:px-[60px]  '>
+        <div className=' flex flex-col gap-5  px-5 md:px-10 lg:px-[60px]'>
           <Titre text="Nos Skills ?" />
           <div className='grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-10  mt-5' ref={ref}>
             {
-              skill.map((skil)=>{
+              skill.map((skil) => {
                 return (
                   <div key={skil.id}>
-                    {isView && <Bar texte={skil.texte} time={skil.time} percent={skil.percent}/>}
-                      
+                    {isView && <Bar texte={skil.texte} time={skil.time} percent={skil.percent} />}
+
                   </div>
                 )
               })
@@ -285,7 +412,69 @@ function Helo() {
       </div>
 
       {/* les services */}
-      
+      <div className=' h-fit w-full pt-5 md:pt-10 dark:bg-[#fafafa] bg-[#0d0d0d]'>
+        <div className=' flex flex-col gap-5  px-5 md:px-10 lg:px-[60px] py-10 md:py-20 bg-second dark:bg-third   '>
+          <Titre text="Nos Services ?" />
+          <div className='  grid grid-cols-1 md:grid-cols-2 gap-5'>
+            {
+              texte_services.map((texte) => {
+                return (
+                  <div key={texte.id} >
+                    <Services_card icone={texte.icon} titre={texte.titre} texte={texte.texte} lien={texte.lien} text_lien={texte.texte_lien} />
+                  </div>
+                )
+              })
+            }
+
+          </div>
+          <div className=' flex justify-center items-center'>
+            <Link href={`/Apropos`} className=' my-10 px-2 py-1 h-fit w-fit rounded-md  dark:bg-second/80 bg-third/80 hover:dark:bg-primar hover:bg-primar text-third font-light text-[14px] md:text-[15px] lg:text-[16px] dark:text-third/80 text-second/80'
+            >
+              Autres services
+            </Link>
+          </div>
+
+        </div>
+      </div>
+
+      {/* les scores realisés */}
+      <div className=' h-fit relative my-10 w-full'>
+        <Image
+          src="/image.jpg"
+          alt='trait '
+          color='red'
+          layout='fill'
+          objectFit='cover'
+          objectPosition='center'
+          priority={true}
+          className=' opacity-5 '
+        />
+        <div className=' h-fit bg-primar flex justify-center items-center '>
+          <div className='px-5 md:px-10 lg:px-[60px] py-10   md:py-20 md:flex  md:justify-center md:items-center md:gap-[150px] '>
+            <Score texte='Projet' time={30} taille={75} icon={<FaRocket size={20} />} />
+            <Score texte='Contrats' time={30} taille={25} icon={<FaRocket size={20} />} />
+            <Score texte='Satisfactions' time={30} taille={100} icon={<FaRocket size={20} />} />
+
+          </div>
+
+
+        </div>
+
+
+
+      </div>
+
+      {/* les les réalisations  */}
+      <div className=' h-fit w-full py-10 md:py-20'>
+        <div className=' flex flex-col gap-5  px-5 md:px-10 lg:px-[60px]  '>
+          <Titre text="Nos Réalisations ?" />
+          <FreeScrollCarousel Words={Liste_projet} setListOpen={setListOpen} listOpen={listOpen} />
+         <Content_image Liste_contenus_projet={Liste_contenus_projet} listOpen={listOpen} />
+        </div>
+
+
+      </div>
+
     </div>)
 
 }
